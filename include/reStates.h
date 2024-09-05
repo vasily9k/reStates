@@ -141,6 +141,8 @@ bool statesMqttIsPrimary();
 bool statesMqttIsLocal();
 bool statesMqttIsEnabled();
 
+void statesFirmwareVerifyCompete();
+
 void heapAllocFailedInit();
 uint32_t heapAllocFailedCount();
 void heapCapsDebug(const char *function_name);
