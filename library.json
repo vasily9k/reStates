@@ -1,6 +1,6 @@
 {
   "name": "reStates",
-  "version": "2.7.1",
+  "version": "2.7.3",
   "description": "Module for centralized monitoring of the state of system components: WiFi, MQTT, Telegram, etc.",
   "keywords": "system",
   "authors":
