@@ -2,7 +2,9 @@
 #include "time.h"
 #include "esp_timer.h"
 #include "reWiFi.h"
+#ifndef CONFIG_MQTT1_OFF
 #include "reMqtt.h"
+#endif 
 #if !defined(CONFIG_NO_SENSORS)
   #include "reSensor.h"
 #endif // CONFIG_NO_SENSORS
