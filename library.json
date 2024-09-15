@@ -1,6 +1,6 @@
 {
   "name": "reStates",
-  "version": "2.7.3",
+  "version": "2.7.4",
   "description": "Module for centralized monitoring of the state of system components: WiFi, MQTT, Telegram, etc.",
   "keywords": "system",
   "authors":
@@ -9,6 +9,11 @@
       "name": "Alexander Razzhivin",
       "email": "kotyara12@yandex.ru",
       "url": "https://kotyara12.ru"
+    },
+    {
+      "name": "Vasily K",
+      "email": "vasily9k@gmail.com",
+      "url": "https://github.com/vasily9k"
     }
   ],
   "license": "MIT",
