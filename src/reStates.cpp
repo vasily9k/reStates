@@ -1538,9 +1538,12 @@ static void statesEventCheckSystemStarted()
     #endif // CONFIG_MQTT_OTA_ENABLE
 
     if ((statesCheck(TIME_SNTP_SYNC_OK, false) || statesCheck(TIME_RTC_ENABLED, false)) 
-     && (statesCheck(WIFI_STA_CONNECTED, false) || statesCheck(ETHERNET_CONNECTED, false))
-     && statesCheck(INET_AVAILABLED, false) 
-     && statesCheck(MQTT_CONNECTED, false)) {
+      && (statesCheck(WIFI_STA_CONNECTED, false) || statesCheck(ETHERNET_CONNECTED, false))
+      && statesCheck(INET_AVAILABLED, false)
+      #ifndef CONFIG_MQTT1_OFF
+      && statesCheck(MQTT_CONNECTED, false)
+      #endif 
+        ) {
       statesSet(SYSTEM_STARTED);
       eventLoopPostSystem(RE_SYS_STARTED, RE_SYS_SET, false, 0);
       #if CONFIG_TELEGRAM_ENABLE && CONFIG_NOTIFY_TELEGRAM_START
@@ -1665,7 +1668,7 @@ static void statesEventHandlerTime(void* arg, esp_event_base_t event_base, int32
     case RE_TIME_SNTP_SYNC_OK:
       statesSet(TIME_SNTP_SYNC_OK);
       statesEventCheckSystemStarted();
-      // rlog_w(logTAG, DEBUG_LOG_EVENT_MESSAGE, event_base, "TIME_SNTP_SYNC_OK");
+      rlog_w(logTAG, DEBUG_LOG_EVENT_MESSAGE, event_base, "TIME_SNTP_SYNC_OK");
       break;
 
     #if CONFIG_SILENT_MODE_ENABLE
